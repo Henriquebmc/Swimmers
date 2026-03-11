@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
     // Force the workspace root to this project to avoid scanning parent directories
     root: __dirname,
   },
+  output: "standalone",
 };
 
 export default nextConfig;

@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  app:
+    build: .
+    container_name: swimmers_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    environment:
+      - DATABASE_URL=postgresql://root:rootpassword@postgres:5432/swimmers?schema=public
+    depends_on:
+      - postgres
+
   postgres:
     image: postgres:15-alpine
     container_name: swimmers_db
