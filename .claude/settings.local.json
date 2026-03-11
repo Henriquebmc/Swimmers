@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(npm run:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx prisma:*)",
+      "Bash(ssh:*)",
+      "Bash(sshpass:*)",
+      "Bash(npm install:*)",
+      "Bash(docker compose:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(python:*)",
+      "Bash(DATABASE_URL=\"postgresql://seu_usuario_aqui:sua_senha_segura_aqui@192.168.15.5:5432/swimmers?schema=public\" npx prisma:*)",
+      "Bash(node:*)"
+    ]
+  }
+}

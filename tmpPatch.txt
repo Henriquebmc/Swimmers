@@ -1,0 +1,22 @@
+  const dedupedMap = new Map<string, (typeof serialized)[number]>();
+  for (const result of serialized) {
+    const key = [
+      result.competitionName,
+      result.date,
+      result.distance,
+      result.stroke,
+      result.course,
+      result.timeMs,
+    ].join("|");
+    const existing = dedupedMap.get(key);
+    if (!existing) {
+      dedupedMap.set(key, result);
+      continue;
+    }
+    const existingHasPosition = existing.position !== null && existing.position !== undefined;
+    const candidateHasPosition = result.position !== null && result.position !== undefined;
+    if (!existingHasPosition && candidateHasPosition) {
+      dedupedMap.set(key, result);
+    }
+  }
+  const dedupedResults = Array.from(dedupedMap.values());
